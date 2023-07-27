@@ -16,8 +16,9 @@ class InputService:
 
     def click_on_coordinate_in_window(self, window, x, y):
         try:
-            window.activate()  # Set the window as active (bring to foreground)
-            # sleep(0.01)  # Wait for the window to become active
+            if not window.isActive:
+                window.activate()  # Set the window as active (bring to foreground)
+                sleep(0.01)  # Wait for the window to become active
 
             # Get the position of the window (in case it was moved)
             window_x, window_y = window.left, window.top
