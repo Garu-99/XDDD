@@ -43,3 +43,10 @@ class CvService:
         center_y = int(moments['m01'] / moments['m00'])
 
         return center_x, center_y
+
+    def show_image(self, screen_name, image, circle_coords: Tuple[int, int] = None,
+                   circle_color: Tuple[int, int, int] = (0, 0, 255),
+                   arrow_start: Tuple[int, int] = None, arrow_end: Tuple[int, int] = None):
+        if circle_coords:
+            cv2.circle(image, circle_coords, 5, circle_color, 2)
+        cv2.imshow(screen_name, image)

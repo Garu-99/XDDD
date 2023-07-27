@@ -9,6 +9,8 @@ class AlgebraService:
     @staticmethod
     def normalize(v: Vector2) -> Vector2:
         max_coord = max(abs(v[0]), abs(v[1]))
+        if max_coord == 0:
+            max_coord = 1
         return v[0] / max_coord, v[1] / max_coord
 
     @staticmethod
